@@ -1,6 +1,6 @@
 # my-project
 
-> A Vue.js project using Vuetify
+> A Vue.js project using Vuetify UI
 
 ## Build Setup
 

@@ -3,7 +3,11 @@
   <v-navigation-drawer app temporary v-model="drawer">
 
     <v-list>
-      <v-list-tile v-for="link in links" :key="link.title" :to="link.url">
+      <v-list-tile
+        v-for="link in links"
+        :key="link.title"
+        :to="link.url"
+        >
         <v-list-tile-action>
           <v-icon>{{ link.icon }}</v-icon>
         </v-list-tile-action>

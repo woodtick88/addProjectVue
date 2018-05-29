@@ -5,9 +5,9 @@
       <v-flex xs12>
         <v-carousel>
           <v-carousel-item v-for="ad in ads" :src="ad.imageSrc" :key="ad.id">
-              <div class="car-link">
-                <v-btn class="error" :to="'/ad/' + ad.id">{{ ad.title }}</v-btn>
-              </div>
+            <div class="car-link">
+              <v-btn class="error" :to="'/ad/' + ad.id">{{ ad.title }}</v-btn>
+            </div>
           </v-carousel-item>
         </v-carousel>
       </v-flex>
@@ -16,14 +16,7 @@
 
   <v-container grid-list-lg>
     <v-layout row wrap>
-      <v-flex
-         xs12
-         sm6
-         md6
-         lg4
-         v-for="ad in ads"
-         :key="ad.id"
-      >
+      <v-flex xs12 sm6 md6 lg4 v-for="ad in ads" :key="ad.id">
         <v-card>
           <v-card-media :src="ad.imageSrc" height="200px">
           </v-card-media>
@@ -34,7 +27,7 @@
             </div>
           </v-card-title>
           <v-card-actions>
-              <v-spacer></v-spacer>
+            <v-spacer></v-spacer>
             <v-btn flat :to="'/ad/' + ad.id">Open</v-btn>
             <v-btn flat class="primary">Buy</v-btn>
           </v-card-actions>
@@ -84,16 +77,14 @@ export default {
 </script>
 
 <style scoped>
-
 .car-link {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    background: rgba(0, 0, 0, 0.5);
-    transform: translate(-50%, 0);
-    padding: 5px 15px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, 0);
+  padding: 5px 15px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
-
 </style>

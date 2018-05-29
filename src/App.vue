@@ -3,11 +3,7 @@
   <v-navigation-drawer app temporary v-model="drawer">
 
     <v-list>
-      <v-list-tile
-        v-for="link in links"
-        :key="link.title"
-        :to="link.url"
-        >
+      <v-list-tile v-for="link in links" :key="link.title" :to="link.url">
         <v-list-tile-action>
           <v-icon>{{ link.icon }}</v-icon>
         </v-list-tile-action>
@@ -23,7 +19,9 @@
   <v-toolbar app dark color="primary">
 
     <v-toolbar-side-icon @click="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
-    <v-toolbar-title><router-link to="/" tag="span" class="pointer">Ad application</router-link></v-toolbar-title>
+    <v-toolbar-title>
+      <router-link to="/" tag="span" class="pointer">Ad application</router-link>
+    </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn v-for="link in links" :key="link.title" :to="link.url" flat>
@@ -80,9 +78,7 @@ export default {
 </script>
 
 <style scoped>
-
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 </style>

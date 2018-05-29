@@ -3,7 +3,7 @@
   <v-container fluid>
     <v-layout row>
       <v-flex xs12>
-        <v-carousel>
+        <v-carousel delimiter-icon="stop">
           <v-carousel-item v-for="ad in ads" :src="ad.imageSrc" :key="ad.id">
             <div class="car-link">
               <v-btn class="error" :to="'/ad/' + ad.id">{{ ad.title }}</v-btn>

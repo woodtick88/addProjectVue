@@ -13,42 +13,42 @@ import Orders from '@/components/User/Orders'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-      {
-          path: '',
-          name: 'home',
-          component: Home
-      },
-      {
-          path: '/ad/:id',
-          name: 'ad',
-          component: Ad
-      },
-      {
-          path: '/list',
-          name: 'list',
-          component: AdList
-      },
-      {
-          path: '/new',
-          name: 'new',
-          component: NewAd
-      },
-      {
-          path: '/login',
-          name: 'login',
-          component: Login
-      },
-      {
-          path: '/registration',
-          name: 'registration',
-          component: Registration
-      },
-      {
-          path: '/orders',
-          name: 'orders',
-          component: Orders
-      },
+  routes: [{
+      path: '',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/ad/:id',
+      props: true,
+      name: 'ad',
+      component: Ad
+    },
+    {
+      path: '/list',
+      name: 'list',
+      component: AdList
+    },
+    {
+      path: '/new',
+      name: 'new',
+      component: NewAd
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/registration',
+      name: 'registration',
+      component: Registration
+    },
+    {
+      path: '/orders',
+      name: 'orders',
+      component: Orders
+    },
   ],
   mode: 'history'
 })

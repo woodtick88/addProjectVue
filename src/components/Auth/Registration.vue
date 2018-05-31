@@ -9,8 +9,8 @@
         <v-card-text>
           <v-form ref="form" v-model="valid" validation>
             <v-text-field prepend-icon="person" name="email" label="Email" type="email" v-model="email" :rules="emailRules"></v-text-field>
-            <v-text-field id="password" prepend-icon="lock" name="password" label="Password" type="password" v-model="password" :counter="6" :rules="passwordRules"></v-text-field>
-            <v-text-field id="confirm-password" prepend-icon="lock" name="confirm-password" label="Confirm password" type="password" v-model="confirmPassword" :rules="confirmPasswordRules"></v-text-field>
+            <v-text-field prepend-icon="lock" name="password" label="Password" type="password" v-model="password" :counter="6" :rules="passwordRules"></v-text-field>
+            <v-text-field prepend-icon="lock" name="confirm-password" label="Confirm password" type="password" :counter="6" v-model="confirmPassword" :rules="confirmPasswordRules"></v-text-field>
           </v-form>
         </v-card-text>
         <v-card-actions>
@@ -48,9 +48,17 @@ export default {
   methods: {
     onSubmit() {
       if (this.$refs.form.validate()) {
-        console.log(this.email + ' ' + this.password + ' ' + this.confirmPassword)
-      }
+        const user = {
+            email: this.email,
+            password: this.password
+        }
+
+        this.$store.dispatch('registrUser', user)
+
+      }      
+
     }
+
   }
 }
 </script>

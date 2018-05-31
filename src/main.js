@@ -3,7 +3,7 @@ import App from './App'
 import router from './router'
 import Vuetify from 'vuetify'
 import store from './store'
-import * as firebase from './firebase'
+import * as firebase from 'firebase'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
@@ -20,7 +20,7 @@ new Vue({
   },
   template: '<App/>',
   created() {
-      
+
     firebase.initializeApp({
       apiKey: "AIzaSyC35T6_M1nT0DjwEwwW5QgJcsbnv_nWFUY",
       authDomain: "addprojectvue.firebaseapp.com",

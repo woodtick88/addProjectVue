@@ -5,28 +5,28 @@ export default {
         description: 'Hello, I am description',
         promo: true,
         imageSrc: 'https://vuetifyjs.com/static/doc-images/carousel/squirrel.jpg',
-        id: 1
+        id: '1'
       },
       {
         title: 'Second ad',
         description: 'Hello, I am description',
         promo: true,
         imageSrc: 'https://vuetifyjs.com/static/doc-images/carousel/sky.jpg',
-        id: 2
+        id: '2'
       },
       {
         title: 'Third ad',
         description: 'Hello, I am description',
         promo: false,
         imageSrc: 'https://vuetifyjs.com/static/doc-images/carousel/bird.jpg',
-        id: 3
+        id: '3'
       },
       {
         title: 'Fourth ad',
         description: 'Hello, I am description',
         promo: true,
         imageSrc: 'https://vuetifyjs.com/static/doc-images/carousel/planet.jpg',
-        id: 4
+        id: '4'
       }
     ]
   },
@@ -44,7 +44,6 @@ export default {
     },
     adById(state) {
       return adId => {
-        adId = parseInt(adId)
         return state.ads.find(ad => ad.id === adId)
       }
     }

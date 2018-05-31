@@ -1,6 +1,6 @@
 # my-project
 
-> A Vue.js project using Vuetify UI
+> A Vue.js project using Vuetify UI and Firebase for backend
 
 ## Build Setup
 

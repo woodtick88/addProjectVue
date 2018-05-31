@@ -49,6 +49,17 @@ export default {
     }
 
   },
-  mutations: {},
-  actions: {}
+  mutations: {
+      createAd(state, payload) {
+          state.ads.push(payload)
+      }
+  },
+  actions: {
+      createAd({commit}, payload) {
+          payload.id = Math.round(Math.random() * 1000) + ''
+
+          commit('createAd', payload)
+
+      }
+  }
 }

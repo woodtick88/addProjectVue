@@ -52,10 +52,12 @@ export default {
         const ad = {
           title: this.title,
           description: this.description,
-          promo: this.promo
+          promo: this.promo,
+          imageSrc: 'https://firebase.google.com/images/social.png'
         }
 
-        console.log(ad)
+        this.$store.dispatch('createAd', ad)
+
       }
     }
   }

@@ -30,5 +30,11 @@ new Vue({
       messagingSenderId: "985240235712"
     });
 
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            this.$store.dispatch('autoLoginUser', user)
+        }
+    })
+
   }
 })

@@ -38,13 +38,13 @@ export default {
               const user = await firebase.auth().signInWithEmailAndPassword(email, password)
               commit('setUser', new User(user.uid))
               commit('setLoading', false)
-          } catch(error) {
+          } catch (error) {
               commit('setLoading', false)
-              commit('setError', error.message)
+              commit('setError', error)
               throw error
           }
         }
-      
+
   },
   getters: {
     user(state) {

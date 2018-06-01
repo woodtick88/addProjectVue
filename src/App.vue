@@ -37,6 +37,21 @@
       <router-view></router-view>
     </v-container>
   </v-content>
+
+  <template v-if="error">
+      <v-snackbar
+        :timeout="5000"
+        :multi-line="true"
+        color="error"
+        @input="closeError"
+        :value="true"
+      >
+        {{ error.message || error }}
+        <v-spacer></v-spacer>
+        <v-btn flat color="indigo" @click.native="closeError">Close</v-btn>
+      </v-snackbar>
+  </template>
+
   <v-footer app></v-footer>
 </v-app>
 </template>
@@ -44,36 +59,47 @@
 <script>
 export default {
   data() {
-    return {
-      links: [{
-          title: 'Login',
-          icon: 'lock',
-          url: '/login'
-        },
-        {
-          title: 'Registration',
-          icon: 'face',
-          url: '/registration'
-        },
-        {
-          title: 'Orders',
-          icon: 'bookmark_border',
-          url: '/orders'
-        },
-        {
-          title: 'New ad',
-          icon: 'note_add',
-          url: '/new'
-        },
-        {
-          title: 'My ads',
-          icon: 'list',
-          url: '/list'
+        return {
+          links: [{
+              title: 'Login',
+              icon: 'lock',
+              url: '/login'
+            },
+            {
+              title: 'Registration',
+              icon: 'face',
+              url: '/registration'
+            },
+            {
+              title: 'Orders',
+              icon: 'bookmark_border',
+              url: '/orders'
+            },
+            {
+              title: 'New ad',
+              icon: 'note_add',
+              url: '/new'
+            },
+            {
+              title: 'My ads',
+              icon: 'list',
+              url: '/list'
+            }
+          ],
+          drawer: false
         }
-      ],
-      drawer: false
+    },
+    computed: {
+        error() {
+            return this.$store.getters.error
+        }
+    },
+    methods: {
+        closeError() {
+            this.$store.dispatch('clearError')
+        }
     }
-  }
+
 }
 </script>
 

@@ -77,6 +77,8 @@ export default {
           // payload.id = Math.round(Math.random() * 1000) + ''
           // commit('createAd', payload)
 
+          let image = payload.image
+
           commit('clearError')
           commit('setLoading', true)
 
@@ -85,16 +87,25 @@ export default {
                 payload.title,
                 payload.description,
                 getters.user.id,
-                payload.imageSrc,
+                '',
                 payload.promo
             )
 
-              const ad = await firebase.database().ref('ads').push(newAd)
+            const ad = await firebase.database().ref('ads').push(newAd)
+            let imageExt = image.name.slice(image.name.lastIndexOf('.'))
+
+            let fileData = await firebase.storage().ref(`ads/${ad.key}.${imageExt}`).put(image)
+            let imageSrc = fileData.metadata.downloadURLs[0]
+
+            await firebase.database().ref('ads').child(ad.key).update({
+                imageSrc
+            })
 
             commit('setLoading', false)
               commit('createAd', {
                   ...newAd,
-                  id: ad.key
+                  id: ad.key,
+                  imageSrc: imageSrc
               })
 
           } catch(error) {

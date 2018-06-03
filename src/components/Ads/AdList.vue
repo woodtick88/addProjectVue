@@ -1,16 +1,22 @@
 <template>
-<v-container>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
+  <v-container>
+    <v-layout row>
+      <v-flex xs12 sm6 offset-sm3>
 
-      <h1 class="test--secondary mb-3">My ads</h1>
+        <h1 class="test--secondary mb-3">My ads</h1>
 
-      <v-card v-for="ad in myAds" :key="ad.id" class="elevation-10 mb-3">
-        <v-layout row>
+        <v-card
+          class="elevation-10 mb-3"
+          v-for="ad in myAds"
+          :key="ad.id"
+        >
+          <v-layout row>
 
           <v-flex xs4>
-            <v-card-media height="100%" :src="ad.imageSrc">
-
+            <v-card-media
+              height="100%"
+              :src="ad.imageSrc"
+            >
             </v-card-media>
           </v-flex>
 
@@ -21,19 +27,23 @@
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn class="info" :to="'/ad/' + ad.id">Open</v-btn>
+              <v-btn
+                class="info"
+                :to="'/ad/' + ad.id"
+              >Open</v-btn>
             </v-card-actions>
           </v-flex>
 
-        </v-layout>
-      </v-card>
+          </v-layout>
+        </v-card>
 
-    </v-flex>
-  </v-layout>
-</v-container>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
+
 export default {
   computed: {
     myAds() {
@@ -41,4 +51,5 @@ export default {
     }
   }
 }
+
 </script>

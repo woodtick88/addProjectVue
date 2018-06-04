@@ -13,7 +13,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <EditAdModal :ad="ad"></EditAdModal>
-              <v-btn class="success">Buy</v-btn>
+              <app-buy-modal :ad='ad'></app-buy-modal>
             </v-card-actions>
           </v-card>
 
@@ -30,7 +30,7 @@
               </v-layout>
             </v-container>
           </div>
-          
+
         </v-flex>
       </v-layout>
     </v-container>

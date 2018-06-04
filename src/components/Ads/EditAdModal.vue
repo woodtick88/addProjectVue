@@ -30,7 +30,7 @@
                 label="Description"
                 type="text"
                 multi-line
-                v-model="editedDecription"
+                v-model="editedDescription"
               ></v-text-field>
             </v-card-text>
           </v-flex>
@@ -64,7 +64,7 @@ export default {
     return {
       modal: false,
       editedTitle: this.ad.title,
-      editedDecription: this.ad.description
+      editedDescription: this.ad.description
     }
   },
   methods: {
@@ -81,7 +81,7 @@ export default {
 
         this.$store.dispatch('updateAd', {
           title: this.editedTitle,
-          decription: this.editedDescription,
+          description: this.editedDescription,
           id: this.ad.id
         })
 

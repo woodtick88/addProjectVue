@@ -12,6 +12,7 @@ class Ad {
 }
 
 export default {
+
   state: {
     ads: [
       // {
@@ -69,6 +70,15 @@ export default {
       },
       loadAds(state, payload) {
           state.ads = payload
+      },
+      updateAd(state, {title, description, id}) {
+        let ad = state.ads.find(a => {
+          return a.id === id
+        })
+
+        ad.title = title
+        ad.description = description
+
       }
 
   },
@@ -143,14 +153,35 @@ export default {
               commit('loadAds', resultAds)
 
           } catch(error) {
-
               commit('setError', error.message)
               commit('setLoading', false)
               throw error
           }
 
 
+      },
+      async updateAd({commit}, {title, description, id}) {
+        commit('clearError')
+        commit('setLoading', true)
+
+        try {
+          await firebase.database().ref('ads').child(id).update({
+            title, description
+          })
+
+          commit('updateAd', {
+            title, description, id
+          })
+
+          commit('setLoading', false)
+        } catch(error) {
+          commit('setError', error.message)
+          commit('setLoading', false)
+          throw error
+        }
+
       }
 
   }
+
 }
